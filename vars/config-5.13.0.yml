@@ -1,0 +1,18 @@
+mm_conf_site_url: ""
+mm_conf_websocket_url: ""
+mm_conf_bind_address: "127.0.0.1"
+mm_conf_bind_port: "8065"
+# Team settings
+mm_conf_team_sitename: "Mattermost deployed by Ansible"
+mm_conf_team_maxusers: 50
+# SMTP settings
+mm_smtp_auth: "false"
+mm_smtp_user: ""
+mm_smtp_pass: ""
+mm_smtp_host: ""
+mm_smtp_port: ""
+# Connection security for SMTP
+# Can be "", "TLS" or "STARTTLS"
+mm_smtp_tls: ""
+# Metric settings
+mm_conf_metrics_bind_address: "127.0.0.1"

@@ -1,0 +1,19 @@
+[Unit]
+Description=Mattermost
+After=network.target
+After={{ mm_database_service }}.service
+Requires={{ mm_database_service }}.service
+
+[Service]
+Type=notify
+ExecStart={{ mm_path_bin }}
+TimeoutStartSec=3600
+Restart=always
+RestartSec=10
+WorkingDirectory={{ mm_path_work }}
+User={{ mm_system_user }}
+Group={{ mm_system_group }}
+LimitNOFILE={{ mm_limit_nofile }}
+
+[Install]
+WantedBy={{ mm_database_service }}.service

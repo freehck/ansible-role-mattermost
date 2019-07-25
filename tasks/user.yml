@@ -1,0 +1,13 @@
+---
+# Create system user for Mattermost
+- name: Create system group
+  group:
+    name: "{{ mm_system_group }}"
+    state: present
+- name: Create system user
+  user:
+    name: "{{ mm_system_user }}"
+    group: "{{ mm_system_group }}"
+    system: yes
+    state: present
+    create_home: no

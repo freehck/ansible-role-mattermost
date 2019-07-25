@@ -1,0 +1,21 @@
+---
+- include_tasks: user.yml
+- include_tasks: download.yml
+- name: Include DB specific variable
+  include_vars: "{{ mm_database_provider }}.yml"
+- name: Place Mattermost config
+  template:
+    src: "{{ mm_cfg_template }}"
+    dest: "{{ mm_path_cfg }}"
+    owner: "{{ mm_system_user }}"
+    group: "{{ mm_system_group }}"
+- name: Place systemd unit
+  template:
+    src: "mattermost.service.j2"
+    dest: /etc/systemd/system/mattermost.service
+- name: Enable systemd service
+  systemd:
+    name: mattermost
+    daemon_reload: yes
+    enabled: yes
+    state: restarted

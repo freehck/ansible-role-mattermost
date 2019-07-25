@@ -1,0 +1,4 @@
+---
+mm_db_port: "3306"
+mm_db_opts: !unsafe "?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s"
+mm_db_url: "{{ mm_db_user }}:{{ mm_db_pass }}@tcp({{ mm_db_host }}:{{ mm_db_port }})/{{ mm_db_name }}{{ mm_db_opts }}"

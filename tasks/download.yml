@@ -1,0 +1,13 @@
+---
+- name: Download Mattermost tarball
+  get_url:
+    url: "{{ mm_download_url }}"
+    dest: "{{ mm_path_tarball }}"
+- name: Unpack tarball
+  unarchive:
+    src: "{{ mm_path_tarball }}"
+    dest: "{{ mm_path_opt }}"
+    remote_src: yes
+    owner: "{{ mm_system_user }}"
+    group: "{{ mm_system_group }}"
+    mode: "g+w"

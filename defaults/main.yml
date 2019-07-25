@@ -1,0 +1,52 @@
+---
+# Version
+mm_version: "5.13.0"
+# URL
+mm_download_url: "https://releases.mattermost.com/{{ mm_version }}/mattermost-{{ mm_version }}-linux-amd64.tar.gz"
+# Config template
+mm_cfg_template: "config-{{ mm_version }}.conf.j2"
+# System user and group or running Mattermost service
+mm_system_user: mattermost
+mm_system_group: "{{ mm_system_user }}"
+# Path variables
+# Destination for /opt directory
+mm_path_opt: /opt
+# Installation directory
+mm_path_work: "{{ mm_path_opt }}/mattermost"
+# Path to downloaded tarball
+mm_path_tarball: "{{ mm_path_opt }}/mattermost.tgz"
+# Path to executable file
+mm_path_bin: "{{ mm_path_work }}/bin/mattermost"
+# Path to config file
+mm_path_cfg: "{{ mm_path_work }}/config/config.json"
+# Database provider, can be 'mysql' or 'postgresql'
+mm_database_provider: mysql
+# Systemd settings
+mm_limit_nofile: "49152"
+# Database credentials
+mm_db_name: "mattermost-test"
+mm_db_user: "mmuser"
+mm_db_pass: "secret"
+mm_db_host: "127.0.0.1"
+mm_conf_site_url: ""
+mm_conf_websocket_url: ""
+mm_conf_bind_address: "127.0.0.1"
+mm_conf_bind_port: "8065"
+# Team settings
+mm_conf_team_sitename: "Mattermost deployed by Ansible"
+mm_conf_team_maxusers: 50
+# SMTP settings
+mm_smtp_auth: "false"
+mm_smtp_user: ""
+mm_smtp_pass: ""
+mm_smtp_host: ""
+mm_smtp_port: ""
+# Connection security for SMTP
+# Can be "", "TLS" or "STARTTLS"
+mm_smtp_tls: ""
+# Metric settings
+mm_conf_metrics_bind_address: "127.0.0.1"
+mm_conf_sendemailnotifications: "true"
+mm_conf_feedbackname: "Mattermost"
+mm_conf_feedbackemail: "noreply@example.com"
+mm_conf_replytoaddress: "noreply@example.com"
